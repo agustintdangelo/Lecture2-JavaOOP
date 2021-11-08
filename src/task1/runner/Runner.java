@@ -5,8 +5,11 @@ import java.util.List;
 
 import task1.spaceArmy.Alliance;
 import task1.spaceArmy.Empire;
+import task1.unit.DemolitionRebel;
 import task1.unit.DemolitionTrooper;
 import task1.unit.Leader;
+import task1.unit.RebelCommando;
+import task1.unit.RebelTrooper;
 import task1.unit.StormCommando;
 import task1.unit.Stormtrooper;
 import task1.unit.Unit;
@@ -25,9 +28,9 @@ public class Runner {
 
 		Empire empire = new Empire(darthVader, unitsE, "Tatooine");
 
-		Unit soldierR1 = new Stormtrooper(1);
-		Unit soldierR2 = new StormCommando(2);
-		Unit soldierR3 = new DemolitionTrooper(3);
+		Unit soldierR1 = new RebelTrooper(1);
+		Unit soldierR2 = new RebelCommando(2);
+		Unit soldierR3 = new DemolitionRebel(3);
 		List<Unit> unitsR = new ArrayList<>();
 		Leader lukeSkywalker = new Leader("Luke Skywalker", 600, 0, "Alliance");
 
@@ -59,9 +62,12 @@ public class Runner {
 		alliance.attackEnemyUnitsWithUnits(empire);
 		empire.travelToAnotherPlanet("Death Star");
 		alliance.allUnitsRun();
+		Unit soldierE4 = new Stormtrooper(4);
+		empire.addUnit(soldierE4);
 
 		lukeSkywalker.attack(soldierE3);
 		lukeSkywalker.forceAttack(darthVader);
+	
 		
 		System.out.println(lukeSkywalker.equals(darthVader)); //use of equals
 		System.out.println(lukeSkywalker.hashCode());//use of hashcode
