@@ -52,7 +52,7 @@ public class Runner {
 				+ "     \\__/  \\__/ /__/     \\__\\|__| `._______/");
 		System.out.println("---------------------------------------------------------------");
 
-		System.out.println(empire);
+		System.out.println(empire); //use of toString
 		System.out.println(alliance);
 		
 		System.out.println("---------------------------------------------------------------");
@@ -63,5 +63,7 @@ public class Runner {
 		lukeSkywalker.attack(soldierE3);
 		lukeSkywalker.forceAttack(darthVader);
 		
+		System.out.println(lukeSkywalker.equals(darthVader)); //use of equals
+		System.out.println(lukeSkywalker.hashCode());//use of hashcode
 	}
 }

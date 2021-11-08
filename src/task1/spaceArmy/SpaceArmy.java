@@ -7,29 +7,27 @@ import java.util.Objects;
 import task1.unit.Leader;
 import task1.unit.Unit;
 
-
-
 public abstract class SpaceArmy {
 	protected Leader leader;
 	protected List<Unit> units = new ArrayList<>();
 	private String name, location;
-	
+
 	public SpaceArmy(String name, Leader leader, List<Unit> units2, String location) {
 		this.name = name;
 		this.leader = leader;
 		this.units = units2;
-		this.location=location;
+		this.location = location;
 	}
-	
+
 	public void attackEnemyLeaderWithUnits(SpaceArmy enemySpaceArmy) {
-		for(Unit unit : this.units) {
+		for (Unit unit : this.units) {
 			unit.attack(enemySpaceArmy.leader);
 		}
 	}
-	
+
 	public void attackEnemyUnitsWithUnits(SpaceArmy enemySpaceArmy) {
 		for (Unit unit : this.units) {
-			for(Unit enemyUnit : enemySpaceArmy.units) {
+			for (Unit enemyUnit : enemySpaceArmy.units) {
 				unit.attack(enemyUnit);
 			}
 		}
@@ -37,17 +35,21 @@ public abstract class SpaceArmy {
 
 	public void travelToAnotherPlanet(String planet) {
 		this.location = planet;
-		System.out.println("You travelled through hyperspeed and arrived at the planet "+planet+".");	
+		System.out.println("You travelled through hyperspeed and arrived at the planet " + planet + ".");
 		System.out.println("---------------------------------------------------------------");
 	}
-	
+
 	public void allUnitsRun() {
 		leader.run();
-		for(Unit unit : this.units) {
+		for (Unit unit : this.units) {
 			unit.run();
 		}
 	}
 	
+	public void addUnit(Unit unitToAdd) {
+		this.units.add(unitToAdd);
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(leader, name, units);
@@ -75,5 +77,4 @@ public abstract class SpaceArmy {
 		return location;
 	}
 
-	
 }
