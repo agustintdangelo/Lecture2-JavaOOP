@@ -2,7 +2,7 @@ package task1.unit;
 
 import java.util.Objects;
 
-public abstract class Unit {
+public abstract class Unit implements IAttacker, IInformation {
 	private static final int DAMAGE = 20;
 	protected int health;
 	protected int stamina;
@@ -53,7 +53,7 @@ public abstract class Unit {
 		if (enemyUnit.health > 0) {
 			enemyUnit.health -= DAMAGE;
 			this.stamina -= 10;
-			System.out.println("The unit and does " + DAMAGE + " damage to the enemy number: " + enemyUnit.getUnitId());
+			System.out.println("The unit does " + DAMAGE + " damage to the enemy number: " + enemyUnit.getUnitId());
 			if (enemyUnit.health <= 0) {
 				System.out.println("An enemy has been defeated!");
 				enemyUnit.setHealth(0);
@@ -77,7 +77,6 @@ public abstract class Unit {
 			System.out.println("The unit " + this.getUnitId() + " doesn't have enough stamina");
 			System.out.println("---------------------------------------------------------------");
 		}
-
 	}
 
 	@Override

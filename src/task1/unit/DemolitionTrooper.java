@@ -25,7 +25,6 @@ public class DemolitionTrooper extends Unit {
 			System.out.println("---------------------------------------------------------------");
 			System.out.println("The enemy unit " + enemyUnit.getUnitId() + " is dead so you can't attack it.");
 		}
-
 	}
 
 	@Override
@@ -49,5 +48,6 @@ public class DemolitionTrooper extends Unit {
 		return "DemolitionTrooper [health=" + health + ", stamina=" + stamina + ", unitId=" + unitId + ", isAlive="
 				+ isAlive + ", side=" + side + "]";
 	}
+
 
 }

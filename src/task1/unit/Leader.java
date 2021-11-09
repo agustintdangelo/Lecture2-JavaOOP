@@ -2,7 +2,7 @@ package task1.unit;
 
 import java.util.Objects;
 
-public class Leader extends Unit {
+public class Leader extends Unit implements IForceUser {
 	String name;
 	int force;
 	private static final int DAMAGE = 100;

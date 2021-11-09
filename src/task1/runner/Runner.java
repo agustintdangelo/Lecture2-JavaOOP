@@ -3,6 +3,7 @@ package task1.runner;
 import java.util.ArrayList;
 import java.util.List;
 
+import task1.robot.R2D2;
 import task1.spaceArmy.Alliance;
 import task1.spaceArmy.Empire;
 import task1.unit.DemolitionRebel;
@@ -69,7 +70,13 @@ public class Runner {
 		lukeSkywalker.forceAttack(darthVader);
 	
 		
-		System.out.println(lukeSkywalker.equals(darthVader)); //use of equals
-		System.out.println(lukeSkywalker.hashCode());//use of hashcode
+		System.out.println(lukeSkywalker.equals(darthVader));	//use of equals
+		System.out.println(lukeSkywalker.hashCode());			//use of hashcode
+		System.out.println("---------------------------------------------------------------");
+		
+		R2D2 r2d2 = new R2D2();
+		R2D2.talk();          				//static method
+		r2d2.useFlamethrower(soldierE4);    //final method
+		r2d2.chargeBattery();          		//use of final attribute
 	}
 }

@@ -1,8 +1,9 @@
 package task1.unit;
 
-public class DemolitionRebel extends Unit {
+public class DemolitionRebel extends Unit implements IDemolition {
 
-	private static final int DAMAGE = 70;
+	private static final int DAMAGE = 50;
+	private static final int MISSILE_DAMAGE = 100;
 
 	public DemolitionRebel(int unitId) {
 		super(unitId);
@@ -49,6 +50,26 @@ public class DemolitionRebel extends Unit {
 	public String toString() {
 		return "DemolitionRebel [health=" + health + ", stamina=" + stamina + ", unitId=" + unitId + ", isAlive="
 				+ isAlive + ", side=" + side + "]";
+	}
+
+	@Override
+	public void missileAttack(Unit enemyUnit) {
+		if (enemyUnit.getHealth() > 0) {
+			enemyUnit.setHealth(enemyUnit.getHealth() - MISSILE_DAMAGE);
+			this.stamina -= 40;
+			System.out.println(
+					"The unit attacks with missiles and does " + MISSILE_DAMAGE + " damage to the enemy number: " + enemyUnit.getUnitId());
+			if (enemyUnit.getHealth() <= 0) {
+				enemyUnit.setHealth(0);
+				System.out.println("An enemy has been defeated!");
+			}
+			System.out.println("The health of the enemy unit number " + enemyUnit.getUnitId() + " now is: "
+					+ enemyUnit.getHealth());
+			System.out.println("---------------------------------------------------------------");
+		} else {
+			System.out.println("---------------------------------------------------------------");
+			System.out.println("The enemy unit " + enemyUnit.getUnitId() + " is dead so you can't attack it.");
+		}
 	}
 
 }
